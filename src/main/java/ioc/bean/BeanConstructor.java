@@ -97,8 +97,9 @@ public class BeanConstructor {
 		}
 	}
 	
-	private void setCurrentPath() throws ClassNotFoundException{
+	private void setCurrentPath() throws Exception{
 		currentPath = this.getClass().getResource("/").getPath().replace("/", "\\").replace("test-", "");
 		currentPath = currentPath.substring(1, currentPath.length());
+		currentPath = URLDecoder.decode(currentPath, "UTF-8");
 	}
 }
